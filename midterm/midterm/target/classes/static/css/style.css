@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+h1 {
+    color: #c49b63;
+    text-align: center;
+}
+
+form, table {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+table th, table td {
+    padding: 10px;
+}
+
+.search-bar input, form input, select, table {
+    background-color: #2c2c2c;
+    border: 1px solid #3e2723;
+    color: #e0e0e0;
+}
