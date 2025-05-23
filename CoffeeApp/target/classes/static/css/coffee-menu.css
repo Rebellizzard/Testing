@@ -1,0 +1,379 @@
+/* Main layout */
+:root {
+    --bg-color: #0f172a; /* Dark navy background */
+    --text-color: #e2e8f0; /* Light gray text */
+    --accent-color: #60a5fa; /* Light blue accent */
+    --accent-hover: #3b82f6; /* Slightly darker blue */
+    --card-bg: #1e293b; /* Darker navy card */
+    --border-color: #334155; /* Medium gray border */
+    --error-color: #ef4444; /* Red for errors */
+}
+
+main {
+    padding: 2rem 1rem;
+    background: var(--bg-color);
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-image: 
+        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-align: left;
+    font-size: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Coffee card styling */
+.card-coffee {
+    background: var(--card-bg);
+    border-radius: 14px;
+    color: var(--text-color);
+    width: 100%;
+    max-width: 300px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-coffee:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2);
+    border-color: var(--accent-color);
+}
+
+.coffee-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Coffee image */
+.coffee-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Coffee info section */
+.coffee-info {
+    padding: 1.5rem;
+}
+
+.coffee-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coffee-type {
+    color: var(--text-color);
+    opacity: 0.9;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.coffee-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.coffee-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-top: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stock badge */
+.stock-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2);
+}
+
+/* Flavor tags */
+.flavor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.flavor-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    background-color: rgba(96, 165, 250, 0.1);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+/* Hide scrollbar */
+.card-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .card-coffee {
+        max-width: 100%;
+    }
+
+    .coffee-image {
+        height: 180px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+}
+
+.coffee-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.coffee-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+.coffee-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2);
+    border-color: var(--accent-color);
+}
+
+.coffee-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.action-button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.edit-button {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.edit-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+.delete-button {
+    background-color: transparent;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.delete-button:hover {
+    background-color: var(--error-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-color);
+}
+
+.empty-state h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p {
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.add-coffee-button {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.add-coffee-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .coffee-menu {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Add these styles at the beginning of the file */
+.catalog-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+}

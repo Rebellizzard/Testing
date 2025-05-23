@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<main>
+    <div class="card-coffee" th:fragment="coffeeCardFragment(coffee)">
+        <a th:href="@{/coffee/{id}(id=${coffee.id})}" class="coffee-link">
+            <div class="stock-badge" th:text="${coffee.stock + ' in stock'}"></div>
+            <img class="coffee-image"
+                 th:if="${coffee.coffeePicture != null and !#strings.isEmpty(coffee.coffeePicture)}"
+                 th:src="@{'/' + ${coffee.coffeePicture}}"
+                 alt="Coffee Picture" />
+
+            <img class="coffee-image"
+                 th:if="${coffee.coffeePicture == null or #strings.isEmpty(coffee.coffeePicture)}"
+                 th:src="@{'/images/coffee.jpg'}"
+                 alt="Default Coffee" />
+
+            <div class="coffee-info">
+                <h3 class="coffee-name" th:text="${coffee.name}">Coffee Name</h3>
+                <p class="coffee-type" th:text="${coffee.type}">Coffee Type</p>
+                
+                <div class="coffee-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Size</span>
+                        <span class="detail-value" th:text="${coffee.size}"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Roast</span>
+                        <span class="detail-value" th:text="${coffee.roastLevel}"></span>
+                    </div>
+                </div>
+
+                <div class="flavor-tags" th:if="${coffee.flavorNotes != null}">
+                    <span class="flavor-tag" th:each="note : ${#strings.arraySplit(coffee.flavorNotes, ',')}" th:text="${#strings.trim(note)}"></span>
+                </div>
+
+                <p class="coffee-price"><strong th:text="'₱' + ${coffee.price}">Price</strong></p>
+            </div>
+        </a>
+    </div>
+</main>
+</body>
+</html>
